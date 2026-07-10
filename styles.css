@@ -1636,116 +1636,122 @@ button {
   }
 }
 
-/* 成长时间线 */
+/* 成长时间线（竖向）*/
 .timeline {
-  position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 10px;
+  gap: 0;
+  max-width: 640px;
+  margin-top: 6px;
 }
 
 .tl-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 56px 26px 1fr;
 }
 
-.tl-year {
-  margin-bottom: 16px;
+.tl-time {
+  padding-top: 1px;
+  padding-right: 14px;
+  text-align: right;
   color: var(--blue-deep);
-  font-size: 25px;
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
-.tl-line {
+.tl-rail {
   position: relative;
-  width: 100%;
-  height: 2px;
-  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
 }
 
-.tl-item:nth-child(1) .tl-line {
-  background: rgba(143, 184, 255, 0.5);
+.tl-rail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(180deg, rgba(143, 184, 255, 0.55), rgba(37, 99, 241, 0.85));
 }
-.tl-item:nth-child(2) .tl-line {
-  background: rgba(90, 150, 255, 0.68);
+
+.tl-item:first-child .tl-rail::before {
+  top: 7px;
 }
-.tl-item:nth-child(3) .tl-line {
-  background: rgba(37, 99, 241, 0.85);
+
+.tl-item:last-child .tl-rail::before {
+  bottom: auto;
+  height: 9px;
 }
 
 .tl-dot {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 15px;
-  height: 15px;
+  position: relative;
+  z-index: 1;
+  margin-top: 3px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: var(--blue);
-  border: 3px solid #fff;
-  box-shadow: 0 0 0 1.5px var(--blue), 0 6px 14px rgba(47, 116, 255, 0.3);
+  background: #fff;
+  border: 3px solid var(--blue);
 }
 
 .tl-item:last-child .tl-dot {
-  width: 18px;
-  height: 18px;
   background: var(--blue-deep);
-  box-shadow: 0 0 0 2px var(--blue-deep), 0 0 0 8px rgba(47, 116, 255, 0.14);
+  border-color: var(--blue-deep);
+  box-shadow: 0 0 0 5px rgba(47, 116, 255, 0.14);
 }
 
-.tl-card {
-  width: 100%;
-  max-width: 300px;
-  padding: 20px 20px 22px;
-  border-radius: 20px;
+.tl-body {
+  padding: 0 0 30px 20px;
 }
 
-.tl-tech {
-  display: inline-block;
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+.tl-item:last-child .tl-body {
+  padding-bottom: 2px;
 }
 
-.tech-1 {
-  color: var(--blue);
-  background: #eef5ff;
-  border: 1px solid #d8e7ff;
-}
-.tech-2 {
-  color: #1d5df0;
-  background: #dce9ff;
-  border: 1px solid #bcd6ff;
-}
-.tech-3 {
-  color: #fff;
-  background: linear-gradient(180deg, #5b91ff, #2463f1);
-  border: 1px solid #1d5df0;
-}
-
-.tl-card h4 {
-  margin: 13px 0 0;
+.tl-body h4 {
+  margin: 0;
   color: var(--ink);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.03em;
 }
 
 .tl-org {
-  margin: 7px 0 0;
-  color: #8a99b2;
-  font-size: 12.5px;
+  color: #93a1b8;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tl-tech {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tl-tech span {
+  padding: 4px 10px;
+  border: 1px solid #d8e7ff;
+  border-radius: 999px;
+  color: var(--blue);
+  background: #eef5ff;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.tl-tech span.hot {
+  color: #fff;
+  background: linear-gradient(180deg, #5b91ff, #2463f1);
+  border-color: #1d5df0;
 }
 
 .tl-q {
-  margin: 12px 0 0;
+  margin: 11px 0 0;
   color: #5a6b82;
   font-size: 13.5px;
+  line-height: 1.6;
 }
 
 .tl-q b {
@@ -1753,41 +1759,17 @@ button {
   font-weight: 700;
 }
 
-@media (max-width: 900px) {
-  .timeline {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    max-width: 480px;
-  }
-
+@media (max-width: 720px) {
   .tl-item {
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-    text-align: left;
+    grid-template-columns: 46px 24px 1fr;
   }
 
-  .tl-year {
-    min-width: 52px;
-    margin-bottom: 0;
-    font-size: 20px;
+  .tl-time {
+    padding-right: 10px;
+    font-size: 14px;
   }
 
-  .tl-line {
-    width: 2px;
-    height: auto;
-    min-height: 76px;
-    align-self: stretch;
-    margin-bottom: 0;
-    background: linear-gradient(180deg, rgba(143, 184, 255, 0.45), rgba(37, 99, 241, 0.7)) !important;
-  }
-
-  .tl-dot {
-    top: 22px;
-  }
-
-  .tl-card {
-    flex: 1;
-    max-width: none;
+  .tl-body {
+    padding-left: 16px;
   }
 }
