@@ -639,30 +639,48 @@ button {
 }
 
 .stat {
-  min-height: 48px;
-  padding: 10px 12px;
-  display: flex;
+  min-height: 52px;
+  padding: 9px 12px;
+  display: grid;
+  grid-template-columns: 48px 1fr;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 11px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   color: rgba(255, 255, 255, 0.86);
   background: rgba(255, 255, 255, 0.045);
-  font-size: 10.4px;
+  font-size: 11px;
+  font-weight: 600;
   line-height: 1.35;
 }
 
 .stat strong {
-  width: 32px;
-  height: 32px;
-  display: grid;
-  place-items: center;
-  flex: 0 0 32px;
-  border-radius: 50%;
-  color: #c9d8ff;
+  width: 48px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border-radius: 12px;
+  color: #dbe6ff;
   background: rgba(112, 146, 255, 0.22);
+  line-height: 1;
+}
+
+.stat strong em {
+  display: block;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.stat strong small {
+  display: block;
   font-size: 8px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.82;
 }
 
 .generated {
@@ -1835,13 +1853,339 @@ button {
   font-weight: 600;
 }
 
-/* Hero 浮动亮点卡片位置（适配标签墙）*/
+/* Hero 浮动亮点卡片位置（适配能力工作台）*/
 .product-frame .note-one {
-  top: 6px;
+  top: 18px;
   right: -18px;
 }
 
 .product-frame .note-two {
   right: -22px;
-  bottom: 20px;
+  bottom: 2px;
+}
+
+.command-box .square svg,
+.floating-note .square svg {
+  width: 17px;
+  height: 17px;
+}
+
+@media (max-width: 720px) {
+  .app-body {
+    padding: 18px 16px;
+  }
+
+  .command-box {
+    grid-template-columns: 34px 1fr;
+  }
+
+  .command-box .tag {
+    grid-column: 2;
+    width: max-content;
+  }
+
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-panel,
+  .action-panel {
+    min-height: auto;
+  }
+}
+
+/* 项目时间线：时间节点与项目卡一一对应 */
+.project-journey-section {
+  width: min(1180px, 100%);
+}
+
+.project-journey-section .section-heading {
+  max-width: 760px;
+}
+
+.project-list {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.project-list::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 40px;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(143, 184, 255, 0.18), rgba(47, 116, 255, 0.72), rgba(143, 184, 255, 0.18));
+}
+
+.journey-project {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.journey-marker {
+  width: 80px;
+  height: 80px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  border: 6px solid rgba(255, 255, 255, 0.88);
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(180deg, #6197ff, #2463f1);
+  box-shadow: 0 12px 28px rgba(37, 99, 241, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.journey-marker span {
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.journey-marker small {
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.journey-card {
+  width: 100%;
+  min-height: 470px;
+  margin-top: 24px;
+  padding: 25px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 26px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.journey-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 54px rgba(32, 77, 148, 0.14);
+}
+
+.journey-focus {
+  align-self: flex-start;
+  min-height: 28px;
+  margin-bottom: 11px;
+  padding: 6px 11px;
+  border: 1px solid #d8e7ff;
+  border-radius: 999px;
+  color: var(--blue-deep);
+  background: #eef5ff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.journey-card .project-meta {
+  min-height: 58px;
+  margin-bottom: 9px;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-content: flex-start;
+  justify-content: start;
+}
+
+.journey-card .project-meta span:last-child {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.journey-card h3 {
+  min-height: 40px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 23px;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.28;
+}
+
+.project-summary {
+  min-height: 118px;
+  margin-top: 4px;
+}
+
+.project-summary ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.project-summary li {
+  position: relative;
+  padding-left: 13px;
+  color: #607089;
+  font-size: 12.5px;
+  line-height: 1.62;
+}
+
+.project-summary li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.project-summary li strong {
+  margin-right: 7px;
+  color: #273751;
+  font-weight: 700;
+}
+
+.project-summary li span {
+  color: #65758d;
+}
+
+.journey-card .metric-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.journey-card .metric {
+  min-width: 0;
+  min-height: 82px;
+  padding: 11px 9px;
+  overflow: hidden;
+  border-radius: 13px;
+}
+
+.journey-card .metric strong {
+  min-height: 38px;
+  display: flex;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.journey-card .metric-long strong {
+  font-size: 12px;
+  letter-spacing: -0.04em;
+}
+
+.journey-card .metric span {
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.journey-card .project-demo {
+  width: 100%;
+  margin-top: 12px;
+  padding-top: 0;
+}
+
+@media (max-width: 900px) {
+  .project-list {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .project-list::before {
+    top: 38px;
+    bottom: 38px;
+    left: 39px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, rgba(143, 184, 255, 0.2), rgba(47, 116, 255, 0.7), rgba(143, 184, 255, 0.2));
+  }
+
+  .journey-project {
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr);
+    align-items: start;
+    gap: 20px;
+    padding-bottom: 28px;
+  }
+
+  .journey-card {
+    min-height: auto;
+    margin-top: 0;
+  }
+
+  .journey-card .project-meta,
+  .journey-card h3,
+  .project-summary {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-list::before {
+    left: 28px;
+  }
+
+  .journey-project {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .journey-marker {
+    width: 58px;
+    height: 58px;
+    border-width: 4px;
+  }
+
+  .journey-marker span {
+    font-size: 12px;
+  }
+
+  .journey-marker small {
+    margin-top: 3px;
+    font-size: 8px;
+  }
+
+  .journey-card {
+    padding: 22px 18px;
+    border-radius: 22px;
+  }
+
+  .journey-card .project-meta {
+    display: flex;
+  }
+
+  .journey-card h3 {
+    min-height: auto;
+    font-size: 20px;
+  }
+
+  .journey-card .metric-row {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-card .metric {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .journey-card .metric span {
+    margin-top: 0;
+  }
+
+  .journey-card .metric strong {
+    min-height: auto;
+  }
 }
