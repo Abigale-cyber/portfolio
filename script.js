@@ -71,8 +71,8 @@ function renderProjects() {
       return `
         <article class="journey-project">
           <div class="journey-marker" aria-label="${project.year} 年，第 ${project.step} 个项目">
-            <span>${project.year}</span>
-            <small>${project.step}</small>
+            <span>${project.step}</span>
+            ${project.year === '2026' ? '' : `<small>${project.year}</small>`}
           </div>
           <div class="journey-card app-card">
             <span class="journey-focus">${project.focus}</span>
