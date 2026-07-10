@@ -69,7 +69,6 @@ function renderProjects() {
         <article class="project-row app-card${index % 2 === 1 ? ' alt' : ''}">
           <a class="project-shot" href="${project.demo}" target="_blank" rel="noreferrer" aria-label="打开 ${project.name} demo">
             <img src="${project.image}" alt="${project.name} 界面" loading="lazy" />
-            <span class="shot-badge"><i data-lucide="external-link"></i>体验 Demo</span>
           </a>
           <div class="project-info">
             <div class="project-meta">${meta}</div>

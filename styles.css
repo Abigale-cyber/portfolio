@@ -1456,27 +1456,6 @@ button {
   transform: scale(1.03);
 }
 
-.shot-badge {
-  position: absolute;
-  left: 16px;
-  bottom: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 13px;
-  border-radius: 999px;
-  color: var(--blue-deep);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: var(--soft-shadow);
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.shot-badge svg {
-  width: 14px;
-  height: 14px;
-}
-
 .project-info {
   padding: 34px 36px;
   display: flex;
