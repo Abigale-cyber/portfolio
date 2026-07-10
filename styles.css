@@ -1640,8 +1640,14 @@ button {
 .timeline {
   display: grid;
   gap: 0;
-  max-width: 640px;
-  margin-top: 6px;
+  max-width: 560px;
+  margin: 6px auto 0;
+}
+
+.about-section .section-heading {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .tl-item {
@@ -1772,4 +1778,56 @@ button {
   .tl-body {
     padding-left: 16px;
   }
+}
+
+/* Hero 个人能力标签墙 */
+.skill-wall {
+  width: min(100%, 460px);
+  padding: 28px 30px 30px;
+  border-radius: 28px;
+  display: grid;
+  gap: 19px;
+}
+
+.skill-kicker {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.skill-group {
+  display: grid;
+  gap: 10px;
+}
+
+.skill-label {
+  color: #8fa0bb;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  padding: 7px 13px;
+  border: 1px solid #d8e7ff;
+  border-radius: 999px;
+  color: #3f5170;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.chip.lead {
+  color: #fff;
+  background: linear-gradient(180deg, #5b91ff, #2463f1);
+  border-color: #1d5df0;
+  font-weight: 600;
 }
