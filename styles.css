@@ -1644,12 +1644,6 @@ button {
   margin: 6px auto 0;
 }
 
-.about-section .section-heading {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
 .tl-item {
   display: grid;
   grid-template-columns: 56px 26px 1fr;
