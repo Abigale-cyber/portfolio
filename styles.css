@@ -1782,11 +1782,17 @@ button {
 
 /* Hero 个人能力标签墙 */
 .skill-wall {
-  width: min(100%, 460px);
-  padding: 28px 30px 30px;
-  border-radius: 28px;
+  position: relative;
+  width: min(100%, 452px);
+  padding: 30px 32px 34px;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 30px;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.94), rgba(231, 240, 255, 0.72));
+  box-shadow: 0 30px 72px rgba(43, 86, 150, 0.17), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
   display: grid;
-  gap: 19px;
+  gap: 20px;
 }
 
 .skill-kicker {
@@ -1799,14 +1805,15 @@ button {
 
 .skill-group {
   display: grid;
-  gap: 10px;
+  gap: 11px;
 }
 
 .skill-label {
   color: #8fa0bb;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .chips {
@@ -1816,11 +1823,12 @@ button {
 }
 
 .chip {
-  padding: 7px 13px;
-  border: 1px solid #d8e7ff;
+  padding: 8px 14px;
+  border: 1px solid rgba(216, 231, 255, 0.9);
   border-radius: 999px;
   color: #3f5170;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 4px 12px rgba(43, 86, 150, 0.06);
   font-size: 13px;
   font-weight: 500;
 }
@@ -1829,5 +1837,17 @@ button {
   color: #fff;
   background: linear-gradient(180deg, #5b91ff, #2463f1);
   border-color: #1d5df0;
+  box-shadow: 0 10px 22px rgba(37, 99, 241, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   font-weight: 600;
+}
+
+/* Hero 浮动亮点卡片位置（适配标签墙）*/
+.product-frame .note-one {
+  top: 6px;
+  right: -18px;
+}
+
+.product-frame .note-two {
+  right: -22px;
+  bottom: 20px;
 }
