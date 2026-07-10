@@ -1921,24 +1921,6 @@ button {
   background: linear-gradient(90deg, rgba(143, 184, 255, 0.18), rgba(47, 116, 255, 0.72), rgba(143, 184, 255, 0.18));
 }
 
-.project-list::after {
-  content: "2026";
-  position: absolute;
-  z-index: 2;
-  top: 40px;
-  left: 66.67%;
-  transform: translate(-50%, -50%);
-  padding: 4px 10px;
-  border: 1px solid rgba(143, 184, 255, 0.42);
-  border-radius: 999px;
-  color: var(--blue-deep);
-  background: rgba(241, 247, 255, 0.94);
-  box-shadow: 0 6px 16px rgba(43, 86, 150, 0.08);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
 .journey-project {
   position: relative;
   z-index: 1;
@@ -2126,10 +2108,6 @@ button {
     width: 2px;
     height: auto;
     background: linear-gradient(180deg, rgba(143, 184, 255, 0.2), rgba(47, 116, 255, 0.7), rgba(143, 184, 255, 0.2));
-  }
-
-  .project-list::after {
-    display: none;
   }
 
   .journey-project {
